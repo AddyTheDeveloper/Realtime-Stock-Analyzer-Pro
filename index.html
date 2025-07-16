@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Span Analyzer Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particle-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Stock Span Analyzer Pro</h1>
+                    <p>Advanced Financial Analysis & Market Intelligence</p>
+                </div>
+                <div class="header-right">
+                    <div class="market-status">
+                        <div class="status-indicator"></div>
+                        <span id="marketStatus">Market Open</span>
+                    </div>
+                    <div class="clock" id="liveClock">00:00:00</div>
+                    <button class="theme-toggle" id="themeToggle">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Real-Time Stock Span Analysis</h2>
+                    <p class="hero-subtitle">Discover market trends and analyze stock performance with advanced span calculations</p>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Enter stock symbol (e.g., AAPL, TSLA, MSFT)" id="stockSearch">
+                        <button class="search-btn">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="market-overview">
+            <div class="container">
+                <h3>Market Overview</h3>
+                <div class="market-grid">
+                    <div class="market-indices">
+                        <h4>Major Indices</h4>
+                        <div class="indices-grid" id="indicesGrid"></div>
+                    </div>
+                    <div class="market-sectors">
+                        <h4>Sector Performance</h4>
+                        <div class="sectors-grid" id="sectorsGrid"></div>
+                    </div>
+                    <div class="market-stats">
+                        <h4>Market Statistics</h4>
+                        <div class="stats-grid" id="statsGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stocks-section">
+            <div class="container">
+                <h3>Stock Portfolio</h3>
+                <div class="stocks-grid" id="stocksGrid"></div>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <div class="container">
+                <h3>Interactive Chart</h3>
+                <div class="chart-container">
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-type="line">Line</button>
+                        <button class="chart-btn" data-type="area">Area</button>
+                        <button class="chart-btn" data-type="bar">Bar</button>
+                        <select id="chartStock">
+                            <option value="AAPL">Apple Inc (AAPL)</option>
+                            <option value="TSLA">Tesla Inc (TSLA)</option>
+                            <option value="MSFT">Microsoft (MSFT)</option>
+                            <option value="GOOGL">Alphabet (GOOGL)</option>
+                            <option value="AMZN">Amazon (AMZN)</option>
+                            <option value="META">Meta (META)</option>
+                            <option value="NVDA">NVIDIA (NVDA)</option>
+                            <option value="NFLX">Netflix (NFLX)</option>
+                            <option value="UBER">Uber (UBER)</option>
+                        </select>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container">
+                <h3>Stock Span Calculator</h3>
+                <div class="calculator-grid">
+                    <div class="calculator-input">
+                        <h4>Custom Price Data</h4>
+                        <textarea id="priceInput" placeholder="Enter comma-separated prices (e.g., 100,105,95,110,120,115,125)"></textarea>
+                        <button class="btn--primary" id="calculateBtn">Calculate Spans</button>
+                    </div>
+                    <div class="calculator-result">
+                        <h4>Span Results</h4>
+                        <div id="spanResults"></div>
+                        <div class="algorithm-info">
+                            <h5>Algorithm Explanation</h5>
+                            <p>The stock span problem calculates the span of stock prices for each day. The span is the number of consecutive days (ending with the current day) for which the stock price was less than or equal to the current day's price.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="technical-analysis">
+            <div class="container">
+                <h3>Technical Analysis</h3>
+                <div class="technical-grid" id="technicalGrid"></div>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <div class="container">
+                <h3>News & Alerts</h3>
+                <div class="news-grid">
+                    <div class="news-feed">
+                        <h4>Latest News</h4>
+                        <div id="newsFeed"></div>
+                    </div>
+                    <div class="alerts-panel">
+                        <h4>Price Alerts</h4>
+                        <div class="alert-form">
+                            <select id="alertStock">
+                                <option value="AAPL">Apple Inc</option>
+                                <option value="TSLA">Tesla Inc</option>
+                                <option value="MSFT">Microsoft</option>
+                                <option value="GOOGL">Alphabet</option>
+                                <option value="AMZN">Amazon</option>
+                                <option value="META">Meta</option>
+                                <option value="NVDA">NVIDIA</option>
+                                <option value="NFLX">Netflix</option>
+                                <option value="UBER">Uber</option>
+                            </select>
+                            <input type="number" id="alertPrice" placeholder="Alert Price" step="0.01">
+                            <button class="btn--primary" id="setAlertBtn">Set Alert</button>
+                        </div>
+                        <div id="alertsList"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="stockModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

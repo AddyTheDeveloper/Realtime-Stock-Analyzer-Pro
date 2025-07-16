@@ -1,0 +1,42 @@
+{
+  "RSI": {
+    "value": 65.3,
+    "signal": "Neutral",
+    "description": "Relative Strength Index"
+  },
+  "MACD": {
+    "value": 2.41,
+    "signal": "Buy",
+    "description": "Moving Average Convergence Divergence"
+  },
+  "SMA_50": {
+    "value": 208.45,
+    "signal": "Bullish",
+    "description": "50-Day Simple Moving Average"
+  },
+  "SMA_200": {
+    "value": 185.23,
+    "signal": "Bullish",
+    "description": "200-Day Simple Moving Average"
+  },
+  "Bollinger_Upper": {
+    "value": 215.67,
+    "signal": "Resistance",
+    "description": "Bollinger Bands Upper"
+  },
+  "Bollinger_Lower": {
+    "value": 201.34,
+    "signal": "Support",
+    "description": "Bollinger Bands Lower"
+  },
+  "Volume_SMA": {
+    "value": 45234567,
+    "signal": "Normal",
+    "description": "Average Volume"
+  },
+  "ATR": {
+    "value": 3.42,
+    "signal": "Medium",
+    "description": "Average True Range"
+  }
+}
